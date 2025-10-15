@@ -1,0 +1,66 @@
+<div class="page-container">
+  <div class="card">
+    <div class="header-row">
+      <h3>All Transactions</h3>
+      <div class="controls">
+        <div class="sort-section">
+          <label>Sort By:</label>
+          <select [(ngModel)]="sortBy" (change)="onSortChange()">
+            <option value="timestamp">Timestamp</option>
+            <option value="amount">Amount</option>
+          </select>
+        </div>
+        <button class="filter-btn" (click)="toggleFilters()">Filters</button>
+      </div>
+    </div>
+
+    <div class="filter-popup" *ngIf="showFilters">
+      <div class="filter-row">
+        <label>Type</label>
+        <input [(ngModel)]="type" placeholder="Deposit/Withdrawal/Transfer-In/Transfer-Out" />
+      </div>
+      <div class="filter-row">
+        <label>Min Amount</label>
+        <input type="number" [(ngModel)]="minAmount" />
+      </div>
+      <div class="filter-row">
+        <label>Max Amount</label>
+        <input type="number" [(ngModel)]="maxAmount" />
+      </div>
+      <div class="filter-row">
+        <label>Start Date</label>
+        <input type="datetime-local" [(ngModel)]="start" />
+      </div>
+      <div class="filter-row">
+        <label>End Date</label>
+        <input type="datetime-local" [(ngModel)]="end" />
+      </div>
+      <div class="filter-actions">
+        <button class="apply-btn" (click)="applyFilters()">Apply</button>
+        <button class="apply-btn" (click)="removeFilters()">Reset</button>
+      </div>
+    </div>
+
+    <table *ngIf="paginatedList.length">
+      <thead>
+        <tr><th>Timestamp</th><th>Type</th><th>Amount</th><th>Account</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of paginatedList">
+          <td>{{ t.timestamp | date: 'dd-MMM-yyyy hh:mm:ss a' }}</td>
+          <td>{{ t.type }}</td>
+          <td>{{ t.amount | currency: 'INR' }}</td>
+          <td>{{ t.accountNo }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p *ngIf="!paginatedList.length">No data.</p>
+
+    <div class="pagination" *ngIf="filteredList.length > size">
+      <button (click)="prevPage()" [disabled]="p === 0">Prev</button>
+      <span>Page {{ p + 1 }} / {{ Math.ceil(filteredList.length / size) }}</span>
+      <button (click)="nextPage()" [disabled]="(p + 1) * size >= filteredList.length">Next</button>
+    </div>
+  </div>
+</div>

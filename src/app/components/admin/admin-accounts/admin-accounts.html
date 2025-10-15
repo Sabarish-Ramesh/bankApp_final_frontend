@@ -1,0 +1,28 @@
+<div class="page-container">
+  <div class="card">
+    <div class="header-row">
+      <h3>All Accounts</h3>
+      <div class="search-controls">
+        <label>Search By:</label>
+        <select [(ngModel)]="searchBy">
+          <option value="accountNo">Account No</option>
+          <option value="accountType">Type</option>
+          <option value="customerId">Customer ID</option>
+        </select>
+        <input [(ngModel)]="searchValue" placeholder="Enter text..." />
+        <button (click)="applySearch()">Search</button>
+        <button (click)="resetSearch()">Reset</button>
+      </div>
+    </div>
+
+    <table *ngIf="filteredList.length">
+      <thead><tr><th>AccountNo</th><th>Balance</th><th>Type</th><th>CustomerId</th></tr></thead>
+      <tbody>
+        <tr *ngFor="let a of filteredList">
+          <td>{{a.accountNo}}</td><td>{{a.balance}}</td><td>{{a.accountType}}</td><td>{{a.customerId}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p *ngIf="!filteredList.length">No data.</p>
+  </div>
+</div>

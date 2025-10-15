@@ -1,0 +1,30 @@
+<div class="card login">
+  <h2>Login</h2>
+
+  <!-- Email -->
+  <label>Email</label>
+  <input
+    type="email"
+    [(ngModel)]="form.username"
+    name="username"
+    [ngClass]="{'invalid': (submitted && !form.username)}"
+  />
+  <p class="err" *ngIf="submitted && !form.username">Email is required</p>
+
+  <!-- Password -->
+  <label>Password</label>
+  <input
+    type="password"
+    [(ngModel)]="form.password"
+    name="password"
+    [ngClass]="{'invalid': (submitted && !form.password)}"
+  />
+  <p class="err" *ngIf="submitted && !form.password">Password is required</p>
+
+  <!-- Submit button -->
+  <button (click)="submit()">Login</button>
+
+  <!-- Global messages -->
+  <p class="err" *ngIf="error && (!submitted || (form.username && form.password))">{{ error }}</p>
+  <p class="have_Account">New user? <a routerLink="/register">Register</a></p>
+</div>

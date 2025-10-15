@@ -1,0 +1,125 @@
+.page-container {
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.card {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+}
+
+h3 {
+  color: #f1c40f;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 0.6rem;
+}
+
+th {
+  background: #222;
+  color: #f1c40f;
+}
+
+tr:nth-child(even) {
+  background: #1a1a1a;
+}
+
+td{
+    color: white;
+}
+
+.page-container {
+  margin: 2rem auto;
+  max-width: 1000px;
+  font-family: "Inter", sans-serif;
+}
+
+.card {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+}
+
+h3 {
+  color: #f1c40f;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.search-controls, .controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+input, select {
+  background: #000;
+  color: #fff;
+  border: 1px solid #d4af37;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+}
+
+button {
+  background: linear-gradient(90deg, #d4af37, #f1c40f);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #111;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #f1c40f, #ffd700);
+  transform: scale(1.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 0.6rem;
+  color: white;
+  text-align: left;
+}
+
+th {
+  background: #222;
+  color: #f1c40f;
+}
+
+tr:nth-child(even) { background: #1a1a1a; }
+
+.filter-popup {
+  background: #111;
+  border: 1px solid #d4af37;
+  padding: 1rem;
+  margin: 0.5rem 0 1rem;
+  border-radius: 8px;
+}

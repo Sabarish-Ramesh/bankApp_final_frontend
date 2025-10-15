@@ -1,0 +1,18 @@
+<nav class="nav">
+  <a class="brand" routerLink="/">Kantar Bank</a>
+  <span class="spacer"></span>
+
+  <a routerLink="/dashboard" *ngIf="auth.isLoggedIn()">Dashboard</a>
+  <a routerLink="/admin/customers" *ngIf="auth.isLoggedIn() && auth.isAdmin()">All Customers</a>
+  <a routerLink="/admin/accounts" *ngIf="auth.isLoggedIn() && auth.isAdmin()">All Accounts</a>
+  <a routerLink="/admin/transactions" *ngIf="auth.isLoggedIn() && auth.isAdmin()">All Transactions</a>
+  <a routerLink="/login" *ngIf="!auth.isLoggedIn()">Login</a>
+  <a routerLink="/register" *ngIf="!auth.isLoggedIn()">Register</a>
+
+  <button *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+</nav>
+
+
+<main>
+  <router-outlet></router-outlet>
+</main>

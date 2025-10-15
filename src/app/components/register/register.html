@@ -1,0 +1,66 @@
+<div class="card login">
+  <h2>Register</h2>
+
+  <!-- Name -->
+  <label>Name</label>
+  <input
+    [(ngModel)]="form.name"
+    name="name"
+    [ngClass]="{'invalid': fieldErrors.name || (submitted && !form.name)}"
+  />
+  <p class="err" *ngIf="submitted && !form.name">Name is required</p>
+  <p class="err" *ngIf="fieldErrors.name">{{ fieldErrors.name }}</p>
+
+  <!-- Address -->
+  <label>Address</label>
+  <input
+    [(ngModel)]="form.address"
+    name="address"
+    [ngClass]="{'invalid': fieldErrors.address || (submitted && !form.address)}"
+  />
+  <p class="err" *ngIf="submitted && !form.address">Address is required</p>
+  <p class="err" *ngIf="fieldErrors.address">{{ fieldErrors.address }}</p>
+
+  <!-- Phone -->
+  <label>Phone</label>
+  <input
+    [(ngModel)]="form.phone"
+    name="phone"
+    [ngClass]="{'invalid': fieldErrors.phone || (submitted && !form.phone)}"
+  />
+  <p class="err" *ngIf="submitted && !form.phone">Phone number is required</p>
+  <p class="err" *ngIf="fieldErrors.phone">{{ fieldErrors.phone }}</p>
+
+  <!-- Email -->
+  <label>Email</label>
+  <input
+    type="email"
+    [(ngModel)]="form.email"
+    name="email"
+    [ngClass]="{'invalid': fieldErrors.email || (submitted && !form.email)}"
+  />
+  <p class="err" *ngIf="submitted && !form.email">Email is required</p>
+  <p class="err" *ngIf="fieldErrors.email">{{ fieldErrors.email }}</p>
+
+  <!-- Password -->
+  <label>Password</label>
+  <input
+    type="password"
+    [(ngModel)]="form.password"
+    name="password"
+    [ngClass]="{'invalid': fieldErrors.password || (submitted && !form.password)}"
+  />
+  <p class="err" *ngIf="submitted && !form.password">Password is required</p>
+  <p class="err" *ngIf="fieldErrors.password">{{ fieldErrors.password }}</p>
+
+  <!-- Submit Button -->
+  <button (click)="submit()">Create</button>
+
+  <!-- Global messages -->
+  <p class="ok" *ngIf="ok">{{ ok }}</p>
+  <p class="err" *ngIf="err && !Object.keys(fieldErrors).length">{{ err }}</p>
+
+  <p class="have_Account">
+    Have an account? <a routerLink="/login">Login</a>
+  </p>
+</div>

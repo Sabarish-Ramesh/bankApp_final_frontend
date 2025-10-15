@@ -1,0 +1,26 @@
+<div class="page-container">
+<div class="card" *ngIf="account">
+  <h3>Account {{account.accountNo}}</h3>
+  <p class="title"><b>Balance:</b> {{account.balance}}</p>
+  <p class="title"><b>Type:</b> {{account.accountType}}</p>
+
+  <div class="row">
+    <label>Amount</label>
+    <input type="number" [(ngModel)]="amount" min="1"/>
+    <button (click)="deposit()">Deposit</button>
+    <button (click)="withdraw()">Withdraw</button>
+  </div>
+
+  <h4 class="title">Transfer</h4>
+  <label>To Account No</label>
+  <input [(ngModel)]="toAccountNo" placeholder="ACC..." />
+  <label>Amount</label>
+  <input type="number" [(ngModel)]="transferAmount" min="1"/>
+  <button (click)="transfer()">Send</button>
+
+  <p class="transBtn"><a class="anch"[routerLink]="['/transactions', account.accountNo]">View Transactions</a></p>
+</div>
+
+<p class="ok" *ngIf="msg">{{msg}}</p>
+<p class="err" *ngIf="err">{{err}}</p>
+</div>

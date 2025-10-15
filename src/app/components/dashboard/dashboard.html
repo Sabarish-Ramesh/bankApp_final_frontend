@@ -1,0 +1,40 @@
+<div class="page-container">
+<div class="grid">
+  <div class="card">
+    <h3>Create Account</h3>
+    <label>Initial Balance</label>
+    <input type="number" [(ngModel)]="createForm.initialBalance" min="1"/>
+    <label>Type</label>
+    <select [(ngModel)]="createForm.accountType">
+      <option value="SAVINGS">SAVINGS</option>
+      <option value="CURRENT">CURRENT</option>
+    </select>
+    <button (click)="create()" [disabled]="!createForm.initialBalance || createForm.initialBalance <= 0">
+      Create
+    </button>
+
+    <div class="result" *ngIf="created">
+      <p><b>AccountNo:</b> {{created.accountNo}}</p>
+      <p><b>Balance:</b> {{created.balance}}</p>
+      <p><b>Type:</b> {{created.accountType}}</p>
+      <a [routerLink]="['/account', created.accountNo]">Open details</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>View Account</h3>
+    <label>Account No</label>
+    <input [(ngModel)]="lookAccountNo" placeholder="ACC..." />
+    <button (click)="view()">Load</button>
+    <div class="result" *ngIf="looked">
+      <p><b>AccountNo:</b> {{looked.accountNo}}</p>
+      <p><b>Balance:</b> {{looked.balance}}</p>
+      <p><b>Type:</b> {{looked.accountType}}</p>
+      <a [routerLink]="['/account', looked.accountNo]">Open details</a>
+    </div>
+  </div>
+</div>
+
+<p class="ok" *ngIf="msg">{{msg}}</p>
+<p class="err" *ngIf="err">{{err}}</p>
+</div>
